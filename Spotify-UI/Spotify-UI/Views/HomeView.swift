@@ -165,14 +165,14 @@ struct LargeTile: View {
                             .font(.footnote)
                             .fontWeight(.medium)
                             .foregroundColor(.white)
-                        Text("Album * \(mix.suggestedArtists[0])")
+                        Text("Album • \(mix.suggestedArtists[0])")
                             .font(.footnote)
                             .fontWeight(.medium)
                             .foregroundColor(.secondary)
                     }
                 } else {
                     ForEach(mix.suggestedArtists, id: \.self) {artist in
-                        Text(artist == mix.suggestedArtists.last ? "\(artist), and more" : "\(artist), ")
+                        Text(artist == mix.suggestedArtists.last ? "\(artist), and more." : "\(artist), ")
                             .font(.footnote)
                             .fontWeight(.medium)
                             .foregroundColor(.secondary)

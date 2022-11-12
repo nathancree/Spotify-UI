@@ -54,15 +54,15 @@ var AllSuggestionsList: [MusicSuggestion] {[
     ], name: "Made For nathan cree"),
     
     MusicSuggestion(suggestedList: [
-        MusicPick(suggested: "Rap Caviar", suggestedArtists: ["Baby Keem", "Drake", "21 Savage", "Lil Baby", "Juice World"]),
-        MusicPick(suggested: "are & Be", suggestedArtists: ["Rihanna", "Chris Brown", "Beyonce", "Steve Lacey", "SZA"]),
-        MusicPick(suggested: "TODAY'S TOP HITS", suggestedArtists: ["Joji", "Taylor Swift", "Bad Bunny", "Drake", "21 Savage"]),
-        MusicPick(suggested: "HOT HITS", suggestedArtists: ["Joji", "Taylor Swift", "Bad Bunny", "Drake", "The Weekend"]),
-        MusicPick(suggested: "mint", suggestedArtists: ["David Guetta", "Future", "Beyonce", "Bebe Rexha"]),
+        MusicPick(suggested: "Rap Caviar", suggestedArtists: ["Baby Keem", "Drake", "21 Savage"]),
+        MusicPick(suggested: "are & Be", suggestedArtists: ["Rihanna", "Chris Brown", "Beyonce"]),
+        MusicPick(suggested: "TODAY'S TOP HITS", suggestedArtists: ["Joji", "Taylor Swift", "Bad Bunny"]),
+        MusicPick(suggested: "HOT HITS", suggestedArtists: ["Joji", "Taylor Swift", "Bad Bunny"]),
+        MusicPick(suggested: "mint", suggestedArtists: ["David Guetta", "Future", "Beyonce"]),
         MusicPick(suggested: "HOT COUNTRY", suggestedArtists: ["Morgan Wallen", "Luke Combs", "Zach Bryan"]),
-        MusicPick(suggested: "VIVO LATINO", suggestedArtists: ["Bad Bunny", "Rauw Alejandro", "Feid", "Ozuna", "Daddy Yankee"]),
+        MusicPick(suggested: "VIVO LATINO", suggestedArtists: ["Bad Bunny", "Rauw Alejandro", "Feid"]),
         MusicPick(suggested: "Rock This", suggestedArtists: ["Imagine Dragons", "Red Hot", "Chili Peppers"]),
-        MusicPick(suggested: "Today's Indie Rock", suggestedArtists: ["Arctic Monkeys", "Gorillaz", "Tame Impala", "Rex Orange County"]),
+        MusicPick(suggested: "Today's Indie Rock", suggestedArtists: ["Arctic Monkeys", "Gorillaz", "Tame Impala"]),
         MusicPick(suggested: "Alt NOW", suggestedArtists: ["The Killers", "Imagine Dragons", "Artic Monkeys"]),
     ], name: "The state of music today"),
     
