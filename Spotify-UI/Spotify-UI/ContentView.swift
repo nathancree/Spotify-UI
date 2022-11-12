@@ -44,7 +44,6 @@ struct ContentView: View {
                                 Image(systemName: "gear")
                             }
                         }
-//                        .navigationTitle("Good afternoon")
                         .foregroundColor(.white)
                 }
                 .tabItem {
@@ -52,13 +51,25 @@ struct ContentView: View {
                         .foregroundColor(.white)
                 }
                 
+                
                 NavigationStack {
                     SearchView(songIndex: $songIndex, showSheet: $showSheet)
-                        .navigationTitle("Search")
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarLeading) {
+                                Text("Search")
+                                    .font(.title)
+                                    .fontWeight(.bold)
+                            }
+                            ToolbarItem(placement: .navigationBarTrailing) {
+                                Image(systemName: "camera")
+                            }
+                        }
                 }
                 .tabItem {
                     Label("Search", systemImage: "magnifyingglass")
                 }
+                
+                
                 NavigationStack {
                     LibraryView(songIndex: $songIndex, playlistList: $playlistList, showSheet: $showSheet)
                         .toolbar {
@@ -93,7 +104,6 @@ struct ContentView: View {
                     Label("Your Library", systemImage: "book.closed")
                 }
             }
-            
             .accentColor(.white)
             
         }

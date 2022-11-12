@@ -38,7 +38,7 @@ struct SingleSongView: View {
                 //                           endPoint: .topTrailing)
                 //            .ignoresSafeArea()
                 
-                Image(songList[songIndex].songTitle)
+                Image(songList[songIndex].album)
                 //doesn't work when I use the line below. I think it should be the same output
                 //Both lines should just be doing -> Image("Daydream")
 //                Image(Track.example[songIndex].name)
@@ -59,7 +59,7 @@ struct SingleSongView: View {
                     }
                     .padding(.init(top: 20, leading: 0, bottom: 50, trailing: 0))
                     
-                    Image(songList[songIndex].songTitle)
+                    Image(songList[songIndex].album)
                         .resizable()
                         .frame(width: 340, height: 340)
                         .padding(.bottom, 50)

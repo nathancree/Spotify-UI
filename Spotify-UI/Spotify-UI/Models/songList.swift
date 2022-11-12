@@ -22,7 +22,7 @@ var songList: [Song] = [
     Song(songTitle: "Time Machine", artist: "Cuco", timeLength: 219, album: "Fantasy Gateway"),
     Song(songTitle: "Afterthought", artist: "Joji, BENEE", timeLength: 194, album: "Nectar"),
     Song(songTitle: "EXIST", artist: "Jessaudrey", timeLength: 222, album: "EXIST"),
-    Song(songTitle: "Symphonic Dances, Op. 45", artist: "Sergei Rachmaninoff", timeLength: 694, album: "Unknown"),
+    Song(songTitle: "Symphonic Dances, Op. 45", artist: "Sergei Rachmaninoff", timeLength: 694, album: "Symphonic Dances, Op. 45"),
     Song(songTitle: "Pyramids", artist: "Frank Ocean", timeLength: 592, album: "channel ORANGE")
 ]
 
