@@ -25,6 +25,8 @@
 		548C16BD291EFAB800C3D55C /* Sample Tracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548C16BC291EFAB800C3D55C /* Sample Tracks.swift */; };
 		548C16BF291EFADA00C3D55C /* Sample Artists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548C16BE291EFADA00C3D55C /* Sample Artists.swift */; };
 		548C16C1291EFAF600C3D55C /* Sample Playlists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548C16C0291EFAF600C3D55C /* Sample Playlists.swift */; };
+		548C16C4291FEE0700C3D55C /* AlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548C16C3291FEE0700C3D55C /* AlbumView.swift */; };
+		548C16C62920158D00C3D55C /* MusicSuggestionLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548C16C52920158D00C3D55C /* MusicSuggestionLists.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,8 @@
 		548C16BC291EFAB800C3D55C /* Sample Tracks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sample Tracks.swift"; sourceTree = "<group>"; };
 		548C16BE291EFADA00C3D55C /* Sample Artists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sample Artists.swift"; sourceTree = "<group>"; };
 		548C16C0291EFAF600C3D55C /* Sample Playlists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sample Playlists.swift"; sourceTree = "<group>"; };
+		548C16C3291FEE0700C3D55C /* AlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumView.swift; sourceTree = "<group>"; };
+		548C16C52920158D00C3D55C /* MusicSuggestionLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSuggestionLists.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,7 @@
 				548C16B4291EF97C00C3D55C /* HomeView.swift */,
 				548C16B6291EF9A700C3D55C /* SearchView.swift */,
 				548C16B8291EF9BA00C3D55C /* LibraryView.swift */,
+				548C16C3291FEE0700C3D55C /* AlbumView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -122,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				548C16A4291EF84000C3D55C /* songList.swift */,
+				548C16C52920158D00C3D55C /* MusicSuggestionLists.swift */,
 				548C16A6291EF85000C3D55C /* Album.swift */,
 				548C16A8291EF86100C3D55C /* Artist.swift */,
 				548C16AA291EF87800C3D55C /* Track.swift */,
@@ -212,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				548C1691291EF6B800C3D55C /* ContentView.swift in Sources */,
+				548C16C4291FEE0700C3D55C /* AlbumView.swift in Sources */,
 				548C16B3291EF93100C3D55C /* SingleSongView.swift in Sources */,
 				548C168F291EF6B800C3D55C /* Spotify_UIApp.swift in Sources */,
 				548C16BB291EFAA600C3D55C /* Sample Albums.swift in Sources */,
@@ -223,6 +230,7 @@
 				548C16AD291EF88D00C3D55C /* Playlist.swift in Sources */,
 				548C16BD291EFAB800C3D55C /* Sample Tracks.swift in Sources */,
 				548C16B1291EF91300C3D55C /* MakePlaylistView.swift in Sources */,
+				548C16C62920158D00C3D55C /* MusicSuggestionLists.swift in Sources */,
 				548C16A9291EF86100C3D55C /* Artist.swift in Sources */,
 				548C16A7291EF85000C3D55C /* Album.swift in Sources */,
 				548C16AB291EF87800C3D55C /* Track.swift in Sources */,

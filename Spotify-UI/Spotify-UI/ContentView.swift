@@ -120,11 +120,11 @@ struct MiniPlayerView: View {
             ZStack {
 
                 //sets the background of the mini player to be the avg color of the current song playing
-                Color(uiColor: UIImage(imageLiteralResourceName: songList[songIndex].songTitle).getAverageColour ?? .darkGray)
+                Color(uiColor: UIImage(imageLiteralResourceName: songList[songIndex].album).getAverageColour ?? .darkGray)
                     .brightness(-0.15)
                 
                 HStack {
-                    Image(songList[songIndex].songTitle)
+                    Image(songList[songIndex].album)
                         .resizable()
                         .frame(width: 50, height: 50)
                     
