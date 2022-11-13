@@ -18,7 +18,7 @@ struct MusicSuggestion: Identifiable {
     var id = UUID()
     var suggestedList: [MusicPick]
     var name: String
-    var artistType: Bool = false
+    var artistType: Bool = false //by default its considered a playlist
     var albumType: Bool = false
     
 }

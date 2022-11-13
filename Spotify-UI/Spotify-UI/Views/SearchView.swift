@@ -11,6 +11,8 @@ struct SearchView: View {
     
     @Binding var songIndex: Int
     @Binding var showSheet: Bool
+    @Binding var currentTrack: Track
+    @Binding var currentAlbum: Album
     
     var body: some View {
         NavigationStack {
@@ -20,8 +22,10 @@ struct SearchView: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                    SearchBarSubview()
-                        .padding(.top, 20)
+                    NavigationLink(destination: clickedOnSearchBar()) {
+                        SearchBarSubview()
+                            .padding(.top, 20)
+                    }
                     
                     ScrollView {
                         HStack {
@@ -35,12 +39,16 @@ struct SearchView: View {
                         HStack(spacing: 15) {
                             VStack(spacing: 15) {
                                 ForEach(1..<20) {num in
-                                    SearchTile(image: "image \(num)")
+                                    NavigationLink(destination: clickedOnSearchBar()) {
+                                        SearchTile(image: "image \(num)")
+                                    }
                                 }
                             }
                             VStack(spacing: 15) {
                                 ForEach(21..<40) {num in
-                                    SearchTile(image: "image \(num)")
+                                    NavigationLink(destination: clickedOnSearchBar()) {
+                                        SearchTile(image: "image \(num)")
+                                    }
                                 }
                             }
                         }
@@ -48,7 +56,7 @@ struct SearchView: View {
                     }
                     
                     Spacer()
-                    MiniPlayerView(songIndex: $songIndex, showSheet: $showSheet)
+                    MiniPlayerView(songIndex: $songIndex, showSheet: $showSheet, currentTrack: $currentTrack, currentAlbum: $currentAlbum)
                         .padding(.bottom, 20)
                 }
             }
@@ -59,9 +67,11 @@ struct SearchView: View {
 struct SearchPreview: View {
     @State var songIndex: Int = 0
     @State var showSheet: Bool = false
+    @State var currentTrack: Track = FantasyGateway.tracks[0]
+    @State var currentAlbum: Album = FantasyGateway
     
     var body: some View {
-        SearchView(songIndex: $songIndex, showSheet: $showSheet)
+        SearchView(songIndex: $songIndex, showSheet: $showSheet, currentTrack: $currentTrack, currentAlbum: $currentAlbum)
     }
 }
 
@@ -73,32 +83,34 @@ struct SearchView_Previews: PreviewProvider {
 
 struct SearchBarSubview: View {
     var body: some View {
-        NavigationLink(destination: AlbumView()) {
-            HStack {
-                Image(systemName: "magnifyingglass")
-                    .font(.title2)
-                    .foregroundColor(.black)
-                    .padding(.leading)
-                Text("What do you want to listen to?")
-                    .foregroundColor(.black)
-                Spacer()
-            }
-            .frame(width: 390, height: 45)
-            .background(.white)
-            .cornerRadius(15)
+        HStack {
+            Image(systemName: "magnifyingglass")
+                .font(.title2)
+                .foregroundColor(.black)
+                .padding(.leading)
+            Text("What do you want to listen to?")
+                .foregroundColor(.black)
+            Spacer()
         }
+        .frame(width: 390, height: 45)
+        .background(.white)
+        .cornerRadius(15)
     }
 }
 
 struct SearchTile: View {
     var image: String
     var body: some View {
-        NavigationLink(destination: AlbumView()) {
-            Image(image)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 180, height: 80)
-                .cornerRadius(8)
-        }
+        Image(image)
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+            .frame(width: 180, height: 80)
+            .cornerRadius(8)
+    }
+}
+
+struct clickedOnSearchBar: View {
+    var body: some View {
+        Image(systemName: "start")
     }
 }

@@ -10,9 +10,8 @@ import SwiftUI
 struct ContentView: View {
     
     @State var songIndex: Int = 0
-    // crashes whenever I uncomment either one of these lines of code.
-//    @State var currentTrack: Track = EXISTTrack[0]
-//    var exampleTracks = Track.example  //tried to copy this line from the LifteyDemo
+    @State var currentTrack: Track = FantasyGateway.tracks[0]
+    @State var currentAlbum: Album = FantasyGateway
     @State var playlistList: [PlaylistItem] = [PlaylistItem(name: "Liked Songs")]
     @State var showSheet: Bool = false
     @State var showPlaylistSheet: Bool = false
@@ -21,7 +20,7 @@ struct ContentView: View {
         ZStack {
             TabView{
                 NavigationStack {
-                    HomeView(songIndex: $songIndex, showSheet: $showSheet)
+                    HomeView(songIndex: $songIndex, showSheet: $showSheet, currentTrack: $currentTrack, currentAlbum: $currentAlbum, thisAlbum: currentAlbum)
                         .toolbar {
                             ToolbarItem(placement: .navigationBarLeading) {
                                 Text("Good evening")
@@ -53,7 +52,7 @@ struct ContentView: View {
                 
                 
                 NavigationStack {
-                    SearchView(songIndex: $songIndex, showSheet: $showSheet)
+                    SearchView(songIndex: $songIndex, showSheet: $showSheet, currentTrack: $currentTrack, currentAlbum: $currentAlbum)
                         .toolbar {
                             ToolbarItem(placement: .navigationBarLeading) {
                                 Text("Search")
@@ -71,7 +70,7 @@ struct ContentView: View {
                 
                 
                 NavigationStack {
-                    LibraryView(songIndex: $songIndex, playlistList: $playlistList, showSheet: $showSheet)
+                    LibraryView(songIndex: $songIndex, playlistList: $playlistList, showSheet: $showSheet, currentTrack: $currentTrack, currentAlbum: $currentAlbum)
                         .toolbar {
                             ToolbarItem(placement: .navigationBarLeading) {
                                 HStack {
@@ -121,6 +120,8 @@ struct ContentView_Previews: PreviewProvider {
 struct MiniPlayerView: View {
     @Binding var songIndex: Int
     @Binding var showSheet: Bool
+    @Binding var currentTrack: Track
+    @Binding var currentAlbum: Album
     
     var body: some View {
         //        NavigationLink(destination: SingleSongView(songIndex: $songIndex)) {
@@ -130,19 +131,24 @@ struct MiniPlayerView: View {
             ZStack {
 
                 //sets the background of the mini player to be the avg color of the current song playing
-                Color(uiColor: UIImage(imageLiteralResourceName: songList[songIndex].album).getAverageColour ?? .darkGray)
+                Color(uiColor: UIImage(imageLiteralResourceName: currentAlbum.album_name).getAverageColour ?? .darkGray)
                     .brightness(-0.15)
                 
                 HStack {
-                    Image(songList[songIndex].album)
+                    Image(currentAlbum.album_name)
                         .resizable()
                         .frame(width: 50, height: 50)
                     
-                    VStack {
-                        Text(songList[songIndex].songTitle)
+                    VStack(alignment: .leading) {
+                        Text(currentTrack.name)
                             .foregroundColor(.white)
-                        Text(songList[songIndex].artist)
-                        .foregroundColor(.secondary)
+                        HStack {
+                            ForEach(currentTrack.artists) {artist in
+                                Text(artist.name == currentTrack.artists.last?.name ? "\(artist.name)" : "\(artist.name), ")
+                                    .foregroundColor(.secondary)
+                            }
+                            Spacer()
+                        }
                     }
                     Spacer()
                     
@@ -159,7 +165,7 @@ struct MiniPlayerView: View {
                 .padding(.leading, 20)
                 .padding(.trailing, 20)
                 .fullScreenCover(isPresented: $showSheet) {
-                    SingleSongView(songIndex: $songIndex)
+                    SingleSongView(currentTrack: $currentTrack, currentAlbum: $currentAlbum)
                 }
             }
             .frame(width: .infinity, height: 75)
@@ -168,21 +174,21 @@ struct MiniPlayerView: View {
     }
 }
 //    used to find avg color of image??
-    extension UIImage {
-        var getAverageColour: UIColor? {
-            //A CIImage object is the image data you want to process.
-            guard let inputImage = CIImage(image: self) else { return nil }
-            // A CIVector object representing the rectangular region of inputImage .
-            let extentVector = CIVector(x: inputImage.extent.origin.x, y: inputImage.extent.origin.y, z: inputImage.extent.size.width, w: inputImage.extent.size.height)
-    
-            guard let filter = CIFilter(name: "CIAreaAverage", parameters: [kCIInputImageKey: inputImage, kCIInputExtentKey: extentVector]) else { return nil }
-            guard let outputImage = filter.outputImage else { return nil }
-    
-            var bitmap = [UInt8](repeating: 0, count: 4)
-            let context = CIContext(options: [.workingColorSpace: kCFNull!])
-            context.render(outputImage, toBitmap: &bitmap, rowBytes: 4, bounds: CGRect(x: 0, y: 0, width: 1, height: 1), format: .RGBA8, colorSpace: nil)
-    
-            return UIColor(red: CGFloat(bitmap[0]) / 255, green: CGFloat(bitmap[1]) / 255, blue: CGFloat(bitmap[2]) / 255, alpha: CGFloat(bitmap[3]) / 255)
-        }
+extension UIImage {
+    var getAverageColour: UIColor? {
+        //A CIImage object is the image data you want to process.
+        guard let inputImage = CIImage(image: self) else { return nil }
+        // A CIVector object representing the rectangular region of inputImage .
+        let extentVector = CIVector(x: inputImage.extent.origin.x, y: inputImage.extent.origin.y, z: inputImage.extent.size.width, w: inputImage.extent.size.height)
+
+        guard let filter = CIFilter(name: "CIAreaAverage", parameters: [kCIInputImageKey: inputImage, kCIInputExtentKey: extentVector]) else { return nil }
+        guard let outputImage = filter.outputImage else { return nil }
+
+        var bitmap = [UInt8](repeating: 0, count: 4)
+        let context = CIContext(options: [.workingColorSpace: kCFNull!])
+        context.render(outputImage, toBitmap: &bitmap, rowBytes: 4, bounds: CGRect(x: 0, y: 0, width: 1, height: 1), format: .RGBA8, colorSpace: nil)
+
+        return UIColor(red: CGFloat(bitmap[0]) / 255, green: CGFloat(bitmap[1]) / 255, blue: CGFloat(bitmap[2]) / 255, alpha: CGFloat(bitmap[3]) / 255)
     }
+}
 

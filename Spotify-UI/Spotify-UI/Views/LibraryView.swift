@@ -11,8 +11,9 @@ struct LibraryView: View {
     
     @Binding var songIndex: Int
     @Binding var playlistList: [PlaylistItem]
-    
     @Binding var showSheet: Bool
+    @Binding var currentTrack: Track
+    @Binding var currentAlbum: Album
 
     var body: some View {
         NavigationStack {
@@ -27,7 +28,7 @@ struct LibraryView: View {
                     }
                     
                     Spacer()
-                    MiniPlayerView(songIndex: $songIndex, showSheet: $showSheet)
+                    MiniPlayerView(songIndex: $songIndex, showSheet: $showSheet, currentTrack: $currentTrack, currentAlbum: $currentAlbum)
                         .padding(.bottom, 20)
                 }
             }
@@ -40,9 +41,12 @@ struct LibraryPreview: View {
     @State var songIndex: Int = 0
     @State var playlistList: [PlaylistItem] = [PlaylistItem(name: "Liked Songs")]
     @State var showSheet: Bool = false
+    @State var currentTrack: Track = FantasyGateway.tracks[0]
+    @State var currentAlbum: Album = FantasyGateway
+    @State var thisAlbum: Album = FantasyGateway
     
     var body: some View {
-        LibraryView(songIndex: $songIndex, playlistList: $playlistList, showSheet: $showSheet)
+        LibraryView(songIndex: $songIndex, playlistList: $playlistList, showSheet: $showSheet, currentTrack: $currentTrack, currentAlbum: $currentAlbum)
     }
 }
 

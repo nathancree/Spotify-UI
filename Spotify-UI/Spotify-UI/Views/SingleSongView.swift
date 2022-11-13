@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct SingleSongView: View {
-    var font: String = "railway"
     @State var liked: Bool = false
     @State var songTime: Double = 0
     @State var play: Bool = true
     @State var shuffle: Bool = false
     @State var clickRepeat: Bool = false
-    @Binding var songIndex: Int
+    @Binding var currentTrack: Track
+    @Binding var currentAlbum: Album
+    
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var backButton : some View {
@@ -33,15 +34,8 @@ struct SingleSongView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                //            LinearGradient(gradient: Gradient(colors: [songList[songIndex].darkColor, songList[songIndex].lightColor]),
-                //                           startPoint: .bottomLeading,
-                //                           endPoint: .topTrailing)
-                //            .ignoresSafeArea()
                 
-                Image(songList[songIndex].album)
-                //doesn't work when I use the line below. I think it should be the same output
-                //Both lines should just be doing -> Image("Daydream")
-//                Image(Track.example[songIndex].name)
+                Image(currentTrack.album)
                     .resizable()
                     .ignoresSafeArea()
                     .scaleEffect(2)
@@ -59,28 +53,31 @@ struct SingleSongView: View {
                     }
                     .padding(.init(top: 20, leading: 0, bottom: 50, trailing: 0))
                     
-                    Image(songList[songIndex].album)
+                    Image(currentTrack.album)
                         .resizable()
                         .frame(width: 340, height: 340)
                         .padding(.bottom, 50)
                     
                     HStack {
                         VStack(alignment: .leading) {
-                            Text(songList[songIndex].songTitle)
+                            Text(currentTrack.name)
                                 .foregroundColor(.white)
                                 .font(.title)
                                 .fontWeight(.bold)
-                            Text(songList[songIndex].artist)
-                                .foregroundColor(Color("Light Gray"))
-                                .font(.headline)
-                            
+                            HStack {
+                                ForEach(currentTrack.artists) {artist in
+                                    Text(artist.name == currentTrack.artists.last?.name ? "\(artist.name)" : "\(artist.name), ")
+                                        .foregroundColor(Color("Light Gray"))
+                                        .font(.headline)
+                                }
+                            }
                         }
                         .padding(.leading, 30)
                         Spacer()
                         
                         Button {
                             liked.toggle()
-                            songList[songIndex].liked = liked
+                            currentTrack.liked = liked
                         } label: {
                             Image(systemName: liked ? "heart.fill" : "heart")
                                 .resizable()
@@ -90,7 +87,7 @@ struct SingleSongView: View {
                                 .padding(.trailing, 30)
                         }
                     }
-                    Slider(value: $songTime, in: 0 ... songList[songIndex].timeLength, step: 1)
+                    Slider(value: $songTime, in: 0 ... currentTrack.timeLength, step: 1)
                         .accentColor(.white)
                     //found how to change the slider ball size on stack overflow >:)
                         .onAppear {
@@ -109,7 +106,7 @@ struct SingleSongView: View {
                             .padding(.leading, 30)
                         
                         Spacer()
-                        Text("-\(String(format: "%.0f", floor(songList[songIndex].timeLength/60 - songTime/60))):\(String(format: "%02.0f", (songList[songIndex].timeLength - songTime).truncatingRemainder(dividingBy: 60)))")
+                        Text("-\(String(format: "%.0f", floor(currentTrack.timeLength/60 - songTime/60))):\(String(format: "%02.0f", (currentTrack.timeLength - songTime).truncatingRemainder(dividingBy: 60)))")
                             .foregroundColor(Color("Light Gray"))
                             .font(.subheadline)
                             .padding(.trailing, 30)
@@ -126,10 +123,10 @@ struct SingleSongView: View {
                                 .foregroundColor(shuffle ? .green : .white)
                         }
                         Button {
-                            if songIndex - 1 >= 0 {
-                                songIndex -= 1
+                            if getIndex(currentTrack: currentTrack, currentAlbum: currentAlbum) - 1 >= 0 {
+                                currentTrack = prevTrack(currentAlbum: currentAlbum, currentTrack: currentTrack)
                             }
-                            liked = songList[songIndex].liked
+                            liked = currentTrack.liked
                             songTime = 0
                         } label: {
                             Image(systemName: "backward.end.fill")
@@ -148,10 +145,10 @@ struct SingleSongView: View {
                                 .foregroundColor(.white)
                         }
                         Button {
-                            if songIndex + 1 < songList.capacity {
-                                songIndex += 1
+                            if getIndex(currentTrack: currentTrack, currentAlbum: currentAlbum) + 1 < currentAlbum.tracks.capacity {
+                                currentTrack = nextTrack(currentAlbum: currentAlbum, currentTrack: currentTrack)
                             }
-                            liked = songList[songIndex].liked
+                            liked = currentTrack.liked
                             songTime = 0
                         } label: {
                             Image(systemName: "forward.end.fill")
@@ -249,9 +246,10 @@ struct PlayListInfo: View {
 struct SingleSongPreviewView: View {
     
     @State var songIndex: Int = 0
-    
+    @State var currentTrack: Track = FantasyGateway.tracks[0]
+    @State var currentAlbum: Album = FantasyGateway
     var body: some View {
-        SingleSongView(songIndex: $songIndex)
+        SingleSongView(currentTrack: $currentTrack, currentAlbum: $currentAlbum)
     }
     
 }
@@ -260,4 +258,40 @@ struct SingleSongView_Previews: PreviewProvider {
     static var previews: some View {
         SingleSongPreviewView()
     }
+}
+
+func nextTrack(currentAlbum: Album, currentTrack: Track) -> Track{
+    for i in 0..<currentAlbum.tracks.capacity {
+        if currentAlbum.tracks[i].name == currentTrack.name {
+            return currentAlbum.tracks[i + 1]
+        }
+    }
+    return currentTrack
+}
+
+func prevTrack(currentAlbum: Album, currentTrack: Track) -> Track{
+    for i in 0..<currentAlbum.tracks.capacity {
+        if currentAlbum.tracks[i].name == currentTrack.name {
+            return currentAlbum.tracks[i - 1]
+        }
+    }
+    return currentTrack
+}
+
+func getAlbum(albumList: [Album], currentAlbum: String) -> Album{
+    for i in 0..<albumList.capacity {
+        if albumList[i].album_name == currentAlbum {
+            return albumList[i]
+        }
+    }
+    return albumList[0]
+}
+
+func getIndex(currentTrack: Track, currentAlbum: Album) -> Int{
+    for i in 0..<currentAlbum.tracks.capacity {
+        if currentAlbum.tracks[i].name == currentTrack.name {
+            return i
+        }
+    }
+    return 0
 }

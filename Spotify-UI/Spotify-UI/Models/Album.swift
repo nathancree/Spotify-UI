@@ -6,7 +6,7 @@
 //
 
 import Foundation
-//import SwiftUI
+import SwiftUI
 
 struct Album: Identifiable {
     var album_type: String //can be "album" "single" "compilation"
@@ -16,7 +16,7 @@ struct Album: Identifiable {
     var album_name: String
     var release_date: String
     var type: String = "album" //for accessing this type later on?
-    var artists: [Artist]
+    var artists: Artist
     var tracks: [Track] //the tracks in the album
     var id = UUID()
 }
@@ -25,6 +25,7 @@ struct Album: Identifiable {
 //making an example album
 extension Album {
     static var example: Album {
-        Album(album_type: "album", total_tracks: 7, image: "Daydream", album_name: "For Lovers Only", release_date: "2018", artists: [Artist(image: "Daydream", name: "Luna Luna")], tracks: Track.example)
+        Album(album_type: "album", total_tracks: 7, image: "Daydream", album_name: "For Lovers Only", release_date: "2018", artists: LunaLuna, tracks: Track.example)
     }
+    
 }
