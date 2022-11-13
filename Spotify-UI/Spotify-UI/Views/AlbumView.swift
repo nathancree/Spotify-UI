@@ -78,8 +78,20 @@ struct AlbumView: View {
                                 HStack {
                                     Text("Album • \(thisAlbum.release_date)")
                                         .font(.caption)
+                                        .padding(.leading, 10)
                                         Spacer()
                                 }
+                                .padding(.bottom, 10)
+                                
+                                HStack(spacing: 20) {
+                                    AlbumClickableButton(buttonIsClicked: "heart.fill", buttonIsNotClicked: "heart", selectedSize: 25)
+                                    AlbumClickableButton(buttonIsClicked: "arrow.down.to.line.circle.fill", buttonIsNotClicked: "arrow.down.to.line.circle", selectedSize: 25)
+                                    Image(systemName: "ellipsis")
+                                    Spacer()
+                                    AlbumClickableButton(buttonIsClicked: "shuffle", buttonIsNotClicked: "shuffle", selectedSize: 20)
+                                    AlbumClickableButton(buttonIsClicked: "pause.circle.fill", buttonIsNotClicked: "play.circle.fill", selectedSize: 40, playButton: true)
+                                }
+                                .padding(.init(top: 10, leading: 10, bottom: 20, trailing: 10))
                                 
                                 VStack(spacing: 20) {
                                     ForEach(thisAlbum.tracks) {track in
@@ -134,5 +146,25 @@ struct AlbumPreview: View {
 struct AlbumView_Previews: PreviewProvider {
     static var previews: some View {
         AlbumPreview()
+    }
+}
+
+struct AlbumClickableButton: View {
+    @State var isCliked = false
+    let buttonIsClicked: String
+    let buttonIsNotClicked: String
+    let selectedSize: CGFloat
+    var playButton: Bool = false
+    
+    var body: some View {
+        Button {
+            isCliked.toggle()
+        } label: {
+            Image(systemName: isCliked ? buttonIsClicked : buttonIsNotClicked)
+                .resizable()
+                .foregroundColor(playButton ? .green : isCliked ? .green : .white)
+                .aspectRatio(contentMode: .fill)
+                .frame(width: selectedSize, height: selectedSize)
+        }
     }
 }
