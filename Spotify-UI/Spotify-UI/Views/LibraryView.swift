@@ -24,7 +24,7 @@ struct LibraryView: View {
                 
                 VStack {
                     ForEach(playlistList) { list in
-                        PlaylistView(playlist: list)
+                        miniPlaylistView(playlist: list)
                     }
                     
                     Spacer()
@@ -62,7 +62,7 @@ struct PlaylistItem: Identifiable {
     let id = UUID()
 }
 
-struct PlaylistView: View {
+struct miniPlaylistView: View {
     let playlist: PlaylistItem
     
     var body: some View {

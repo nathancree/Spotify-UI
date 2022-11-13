@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct playlist: Identifiable {
+struct Playlist: Identifiable {
 //    var collaborative: Bool //probs don't need it rn
     var discription: String = "" //if description is modified then change it here
-    var followers: Int //tot # of followers of the playlist
+    var followers: Int = 0 //tot # of followers of the playlist
     var image: String //should be an array of image objects that allows up to three images but for now I am making it one image for the cover
     var name: String
 //    var user: user //in the future do a user type dont need now

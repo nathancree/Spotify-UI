@@ -60,9 +60,70 @@ var EXISTTrack: [Track] {[
     Track(album: "EXIST", artists: [Jessaudrey], name: "EXIST", timeLength: 222)
 ]}
 
+var SMITHEREENSTracks: [Track] {[
+    Track(album: "SMITHEREENS", artists: [Joji], name: "Die For You", timeLength: 210),
+    Track(album: "SMITHEREENS", artists: [Joji], name: "Before The Day Is Over", timeLength: 213),
+    Track(album: "SMITHEREENS", artists: [Joji], name: "1AM FREESTYLE", timeLength: 112)
+]}
+
+var SufferTracks: [Track] {[
+    Track(album: "Suffer", artists: [FreddieDredd], name: "Stunna", timeLength: 87),
+]}
+
+var BeatopiaTracks: [Track] {[
+    Track(album: "Beatopia", artists: [beabadoobee], name: "the perfect pair", timeLength: 177),
+]}
+
+var GTGTrack: [Track] {[
+    Track(album: "GTG", artists: [FreddieDredd], name: "GTG", timeLength: 93),
+]}
+
+var GetYouTracks: [Track] {[
+    Track(album: "Get You", artists: [DanielCaesar], name: "Japanese Denim", timeLength: 270),
+]}
+
+var ChannelORANGETracks: [Track] {[
+    Track(album: "channel ORANGE", artists: [FrankOcean], name: "Pyramids", timeLength: 592),
+]}
+
+var DaylightTrack: [Track] {[
+    Track(album: "Daylight", artists: [Joji, Diplo], name: "Daylight", timeLength: 163),
+]}
+
+var InTonguesDeluxeTracks: [Track] {[
+    Track(album: "In Tongues (Deluxe)", artists: [Joji], name: "worldstar money (interlude)", timeLength: 126),
+    Track(album: "In Tongues (Deluxe)", artists: [Joji], name: "Window", timeLength: 252)
+]}
+
+var DrownTrack: [Track] {[
+    Track(album: "Drown", artists: [Cuco, Clairo], name: "Drown", timeLength: 233)
+]}
+
+var JojiMixTracks: [Track] {[
+    Track(album: "SMITHEREENS", artists: [Joji], name: "Die For You", timeLength: 210),
+    Track(album: "Suffer", artists: [FreddieDredd], name: "Stunna", timeLength: 87),
+    Track(album: "Nectar", artists: [Joji, BENEE], name: "Afterthought", timeLength: 194),
+    Track(album: "Beatopia", artists: [beabadoobee], name: "the perfect pair", timeLength: 177),
+    Track(album: "Nectar", artists: [Joji, LilYatchy], name: "Pretty Boy (feat. Lil Yatchy)", timeLength: 156),
+    Track(album: "In Tongues (Deluxe)", artists: [Joji], name: "worldstar money (interlude)", timeLength: 126),
+    Track(album: "SMITHEREENS", artists: [Joji], name: "Before The Day Is Over", timeLength: 213),
+    Track(album: "GTG", artists: [FreddieDredd], name: "GTG", timeLength: 93),
+    Track(album: "Get You", artists: [DanielCaesar], name: "Japanese Denim", timeLength: 270),
+    Track(album: "Nectar", artists: [Joji], name: "Sanctuary", timeLength: 180),
+    Track(album: "Fantasy Gateway", artists: [Cuco], name: "Aura", timeLength: 207),
+    Track(album: "Daylight", artists: [Joji, Diplo], name: "Daylight", timeLength: 163),
+    Track(album: "channel ORANGE", artists: [FrankOcean], name: "Pyramids", timeLength: 592),
+    Track(album: "SMITHEREENS", artists: [Joji], name: "1AM FREESTYLE", timeLength: 112),
+    Track(album: "In Tongues (Deluxe)", artists: [Joji], name: "Window", timeLength: 252),
+    Track(album: "Nectar", artists: [Joji], name: "Ew", timeLength: 207),
+    Track(album: "Drown", artists: [Cuco, Clairo], name: "Drown", timeLength: 233)
+]}
+
 var examples: [Track] {[
     Track(album: "For Lovers Only", artists: [LunaLuna], name: "Daydream", timeLength: 264),
     Track(album: "Fantasy Gateway", artists: [Cuco], name: "Time Machine", timeLength: 219),
     Track(album: "Nectar", artists: [Joji, BENEE], name: "Afterthought", timeLength: 194),
     Track(album: "EXIST", artists: [Jessaudrey], name: "EXIST", timeLength: 222)
 ]}
+
+

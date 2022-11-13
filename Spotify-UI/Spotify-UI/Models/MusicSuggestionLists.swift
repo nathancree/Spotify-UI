@@ -18,6 +18,7 @@ struct MusicSuggestion: Identifiable {
     var id = UUID()
     var suggestedList: [MusicPick]
     var name: String
+    var playlistType: Bool = true
     var artistType: Bool = false //by default its considered a playlist
     var albumType: Bool = false
     
@@ -31,7 +32,7 @@ var AllSuggestionsList: [MusicSuggestion] {[
         MusicPick(suggested: "EXIST", suggestedArtists: ["Jessaudrey"]),
         MusicPick(suggested: "channel ORANGE", suggestedArtists: ["Frank Ocean"]),
         
-    ], name: "Recently Played", albumType: true),
+    ], name: "Recently Played", playlistType: false, albumType: true),
     
     MusicSuggestion(suggestedList: [
         MusicPick(suggested: "Joji Mix", suggestedArtists: ["Freddie Dredd", "Lil Peep", "$uicideboy$"]),
@@ -77,6 +78,6 @@ var AllSuggestionsList: [MusicSuggestion] {[
         MusicPick(suggested: "THIS IS Lil Peep", suggestedArtists: ["Lil Peep"]),
         MusicPick(suggested: "THIS IS Childish Gambino", suggestedArtists: ["Childish Gambino"]),
     
-    ], name: "Best of artists", artistType: true)
+    ], name: "Best of artists", playlistType: false, artistType: true)
 ]}
 
