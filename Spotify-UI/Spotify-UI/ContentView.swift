@@ -192,3 +192,11 @@ extension UIImage {
     }
 }
 
+func getPlaylist(playlistList: [Playlist], playlistName: String) -> Playlist{
+    for i in 0..<playlistList.capacity {
+        if playlistList[i].name == playlistName {
+            return playlistList[i]
+        }
+    }
+    return playlistList[0]
+}

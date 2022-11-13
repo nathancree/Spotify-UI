@@ -197,7 +197,7 @@ struct MusicSuggestionSubview: View {
                                 LargeTile(mix: mix, albumType: true)
                             }
                         } else {
-                            NavigationLink(destination: AlbumView(showSheet: $showSheet, songIndex: $songIndex, currentTrack: $currentTrack, currentAlbum: $currentAlbum, thisAlbum: getAlbum(albumList: AlbumList, currentAlbum: mix.suggested))) {
+                            NavigationLink(destination: PlaylistView(showSheet: $showSheet, songIndex: $songIndex, currentTrack: $currentTrack, currentAlbum: $currentAlbum, thisPlaylist: getPlaylist(playlistList: PlaylistList, playlistName: mix.suggested))) {
                                 LargeTile(mix: mix)
                             }
                         }

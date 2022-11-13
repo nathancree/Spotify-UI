@@ -36,6 +36,7 @@ var AllSuggestionsList: [MusicSuggestion] {[
     
     MusicSuggestion(suggestedList: [
         MusicPick(suggested: "Joji Mix", suggestedArtists: ["Freddie Dredd", "Lil Peep", "$uicideboy$"]),
+        MusicPick(suggested: "Midnight Mix", suggestedArtists: ["Joji", "Cuco", "Daniel Caeser"]),
         MusicPick(suggested: "Chill Mix", suggestedArtists: ["Healy", "ilyTOMMY", "Entro"]),
         MusicPick(suggested: "Cuco Mix", suggestedArtists: ["Joji, Yot Club", "Memo Boy"]),
         MusicPick(suggested: "2010s Mix", suggestedArtists: ["BONES", "Frank Ocean", "Xavier Wulf"]),
