@@ -99,7 +99,7 @@ var DrownTrack: [Track] {[
     Track(album: "Drown", artists: [Cuco, Clairo], name: "Drown", timeLength: 233)
 ]}
 
-var JojiMixTracks: [Track] {[
+var MidnightMixTracks: [Track] {[
     Track(album: "SMITHEREENS", artists: [Joji], name: "Die For You", timeLength: 210),
     Track(album: "Suffer", artists: [FreddieDredd], name: "Stunna", timeLength: 87),
     Track(album: "Nectar", artists: [Joji, BENEE], name: "Afterthought", timeLength: 194),

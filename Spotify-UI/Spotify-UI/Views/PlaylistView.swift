@@ -147,7 +147,7 @@ struct PlaylistPreview: View {
     @State var showSheet: Bool = false
     @State var currentTrack: Track = FantasyGateway.tracks[0]
     @State var currentAlbum: Album = FantasyGateway
-    @State var thisPlaylist: Playlist = JojiMix
+    @State var thisPlaylist: Playlist = MidnightMix
     var body: some View {
         PlaylistView(showSheet: $showSheet, songIndex: $songIndex, currentTrack: $currentTrack, currentAlbum: $currentAlbum, thisPlaylist: thisPlaylist)
     }

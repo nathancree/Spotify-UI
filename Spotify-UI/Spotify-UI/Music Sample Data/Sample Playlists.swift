@@ -8,4 +8,4 @@
 import Foundation
 import SwiftUI
 
-var JojiMix: Playlist = Playlist(discription: "Cuco, Joji, Freddie Dredd", image: "Joji Mix", name: "Joji Mix", tracks: JojiMixTracks)
+var MidnightMix: Playlist = Playlist(discription: "Cuco, Joji, Freddie Dredd", image: "Midnight Mix", name: "Joji Mix", tracks: MidnightMixTracks)
