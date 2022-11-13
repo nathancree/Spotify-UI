@@ -168,7 +168,7 @@ struct MiniPlayerView: View {
                     SingleSongView(currentTrack: $currentTrack, currentAlbum: $currentAlbum)
                 }
             }
-            .frame(width: .infinity, height: 75)
+            .frame(width: 390, height: 65)
             .cornerRadius(10)
         }
     }

@@ -61,8 +61,14 @@ var EXISTTrack: [Track] {[
 ]}
 
 var SMITHEREENSTracks: [Track] {[
+    Track(album: "SMITHEREENS", artists: [Joji], name: "Glimpse of Us", timeLength: 233),
+    Track(album: "SMITHEREENS", artists: [Joji], name: "Feeling Like The End", timeLength: 102),
     Track(album: "SMITHEREENS", artists: [Joji], name: "Die For You", timeLength: 210),
     Track(album: "SMITHEREENS", artists: [Joji], name: "Before The Day Is Over", timeLength: 213),
+    Track(album: "SMITHEREENS", artists: [Joji], name: "Dissolve", timeLength: 176),
+    Track(album: "SMITHEREENS", artists: [Joji], name: "NIGHT RIDER", timeLength: 127),
+    Track(album: "SMITHEREENS", artists: [Joji], name: "BLAHBLAHBLAH DEMO", timeLength: 142),
+    Track(album: "SMITHEREENS", artists: [Joji], name: "YUKON (INTERLUDE)", timeLength: 141),
     Track(album: "SMITHEREENS", artists: [Joji], name: "1AM FREESTYLE", timeLength: 112)
 ]}
 
@@ -83,7 +89,23 @@ var GetYouTracks: [Track] {[
 ]}
 
 var ChannelORANGETracks: [Track] {[
+    Track(album: "channel ORANGE", artists: [FrankOcean], name: "Start", timeLength: 45),
+    Track(album: "channel ORANGE", artists: [FrankOcean], name: "Thinking Bout You", timeLength: 200),
+    Track(album: "channel ORANGE", artists: [FrankOcean], name: "Fertilizer", timeLength: 39),
+    Track(album: "channel ORANGE", artists: [FrankOcean], name: "Sierra Leone", timeLength: 148),
+    Track(album: "channel ORANGE", artists: [FrankOcean], name: "Sweet Life", timeLength: 262),
+    Track(album: "channel ORANGE", artists: [FrankOcean], name: "Not Just Money", timeLength: 59),
+    Track(album: "channel ORANGE", artists: [FrankOcean, EarlSweatshirt], name: "Super Rich Kids", timeLength: 304),
+    Track(album: "channel ORANGE", artists: [FrankOcean], name: "Pilot Jones", timeLength: 183),
+    Track(album: "channel ORANGE", artists: [FrankOcean], name: "Crack Rock", timeLength: 224),
     Track(album: "channel ORANGE", artists: [FrankOcean], name: "Pyramids", timeLength: 592),
+    Track(album: "channel ORANGE", artists: [FrankOcean], name: "Lost", timeLength: 233),
+    Track(album: "channel ORANGE", artists: [FrankOcean, JohnMayer], name: "White", timeLength: 76),
+    Track(album: "channel ORANGE", artists: [FrankOcean], name: "Monks", timeLength: 200),
+    Track(album: "channel ORANGE", artists: [FrankOcean], name: "Bad Religion", timeLength: 175),
+    Track(album: "channel ORANGE", artists: [FrankOcean, Andre3000], name: "Pink Matter", timeLength: 268),
+    Track(album: "channel ORANGE", artists: [FrankOcean], name: "Forrest Gump", timeLength: 194),
+    Track(album: "channel ORANGE", artists: [FrankOcean], name: "End", timeLength: 134),
 ]}
 
 var DaylightTrack: [Track] {[

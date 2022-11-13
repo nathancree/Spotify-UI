@@ -234,7 +234,7 @@ struct TileGridView: View {
                     TileView(image: songList[3].album, name: songList[3].album)
                 }
                 NavigationLink(destination: AlbumView(showSheet: $showSheet, songIndex: $songIndex, currentTrack: $currentTrack, currentAlbum: $currentAlbum, thisAlbum: getAlbum(albumList: AlbumList, currentAlbum: songList[4].album))) {
-                    TileView(image: songList[4].songTitle, name: songList[4].songTitle)
+                    TileView(image: songList[4].album, name: songList[4].album)
                 }
                 NavigationLink(destination: AlbumView(showSheet: $showSheet, songIndex: $songIndex, currentTrack: $currentTrack, currentAlbum: $currentAlbum, thisAlbum: getAlbum(albumList: AlbumList, currentAlbum: songList[5].album))) {
                     TileView(image: songList[5].album, name: songList[5].album)

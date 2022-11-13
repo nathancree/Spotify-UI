@@ -12,7 +12,7 @@ struct Track: Identifiable {
     var artists: [Artist] //artists that appear on the track
     var name: String // name of the track
     var timeLength: Double //length of track
-    var liked: Bool  = false//add to liked songs (same as is_local?)
+    var liked: Bool  = false //add to liked songs (same as is_local?)
     var type: String = "track" //for access later?
 //    var is_local: Bool // is track from a local file? (probs not needed rn)
     var id = UUID()

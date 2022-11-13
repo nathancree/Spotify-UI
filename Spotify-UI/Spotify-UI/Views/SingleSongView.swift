@@ -76,14 +76,15 @@ struct SingleSongView: View {
                         Spacer()
                         
                         Button {
-                            liked.toggle()
-                            currentTrack.liked = liked
+                            //track album artist and playlist should all probs be reference type classes instead of structs
+//                            liked.toggle()
+                            currentTrack.liked.toggle()// = liked
                         } label: {
-                            Image(systemName: liked ? "heart.fill" : "heart")
+                            Image(systemName: currentTrack.liked ? "heart.fill" : "heart")
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
                                 .frame(width: 25, height: 25)
-                                .foregroundColor(liked ? .green : .white)
+                                .foregroundColor(currentTrack.liked ? .green : .white)
                                 .padding(.trailing, 30)
                         }
                     }

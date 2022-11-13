@@ -139,7 +139,7 @@ struct AlbumPreview: View {
     @State var currentTrack: Track = FantasyGateway.tracks[0]
     @State var currentAlbum: Album = FantasyGateway
     var body: some View {
-        AlbumView(showSheet: $showSheet, songIndex: $songIndex, currentTrack: $currentTrack, currentAlbum: $currentAlbum, thisAlbum: getAlbum(albumList: AlbumList, currentAlbum: "FantasyGateway"))
+        AlbumView(showSheet: $showSheet, songIndex: $songIndex, currentTrack: $currentTrack, currentAlbum: $currentAlbum, thisAlbum: getAlbum(albumList: AlbumList, currentAlbum: "Fantasy Gateway"))
     }
 }
 

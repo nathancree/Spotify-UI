@@ -46,7 +46,7 @@ struct PlaylistView: View {
                     
                     ScrollView {
                         ZStack {
-                            LinearGradient(colors: [Color(uiColor: UIImage(imageLiteralResourceName: thisPlaylist.image).getAverageColour ?? .green), .black], startPoint: .top, endPoint: .center)
+                            LinearGradient(colors: [Color(uiColor: UIImage(imageLiteralResourceName: thisPlaylist.image).getAverageColour ?? .green), Color(uiColor: UIImage(imageLiteralResourceName: thisPlaylist.image).getAverageColour ?? .green), .black], startPoint: .top, endPoint: .center)
                                 .ignoresSafeArea()
                             VStack {
                             
@@ -102,6 +102,7 @@ struct PlaylistView: View {
                                         Button {
                                             currentTrack = track
                                             currentAlbum = getAlbum(albumList: AlbumList, currentAlbum: track.album)
+                                            currentAlbum.tracks = thisPlaylist.tracks
                                         } label: {
                                             HStack {
                                                 Image(track.album)
